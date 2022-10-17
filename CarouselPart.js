@@ -4,12 +4,13 @@ export default {
   name: 'CarouselPart',
   components: { Text },
   data() {
+    const paths = [require('./logos/slack.svg'),require('./logos/lyft.svg'),require('./logos/glossier.svg'),require('./logos/charity.svg')]
     return {
-      mySvg: require('./logos/charity.svg'),
+      mySvg: paths[0],
     };
   },
   template: `
-  <div> 
+   
    <div class="relative w-full md:w-2/5 h-full overflow-hidden rounded-t-lg md:rounded-t-none md:rounded-l-lg"
 				style="min-height: 19rem;">
 
@@ -21,5 +22,5 @@ export default {
 		</div>
   <Text />
 
-  </div>`,
+  `,
 };
