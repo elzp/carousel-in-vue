@@ -3,10 +3,11 @@ import Text from './Text.js';
 export default {
   name: 'CarouselPart',
   components: { Text },
+  props: ["number"],
   data() {
     const paths = [require('./logos/slack.svg'),require('./logos/lyft.svg'),require('./logos/glossier.svg'),require('./logos/charity.svg')]
     return {
-      mySvg: paths[0],
+      mySvg: paths[this.number],
     };
   },
   template: `
@@ -20,7 +21,7 @@ export default {
 
 			</div>
 		</div>
-  <Text />
+  <Text :number="number"/>
 
   `,
 };

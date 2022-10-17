@@ -32,8 +32,10 @@ export default {
   to donate throughout the year.
 `,
     ];
-    return { rawHtml: texts[0] };
+    return { 
+      rawHtml: texts[this.number] };
   },
+  props: ["number"],
   template: `
 <div
   data-id="text"

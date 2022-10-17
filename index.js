@@ -1,24 +1,37 @@
-
-
 import { createApp } from 'vue';
 import CarouselPart from './CarouselPart.js';
 const app = createApp({
   // el: '#app',
-	data(){
-		return {
-
-	}},
+  data() {
+    return {
+      number: 2,
+    };
+  },
   components: { CarouselPart },
+  methods: {
+    change(type) {
+      switch (type) {
+        case 'left':
+          break;
+        case 'right':
+          break;
+        default:
+          break;
+      }
+    },
+  },
   template: `
   <div class="flex items-center justify-center">
 		<div class="m-10 mx-auto p-16 sm:p-24 lg:p-48 bg-gray-200">
 
 			<div class="relative rounded-lg block md:flex items-center bg-gray-100 shadow-xl" style="min-height: 19rem;">
-				<CarouselPart />
-				<button class="absolute top-0 mt-32 left-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -ml-6 focus:outline-none focus:shadow-outline">
+				<CarouselPart :number="number"/>
+				<button class="absolute top-0 mt-32 left-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -ml-6 focus:outline-none focus:shadow-outline"
+				@click="()=>change('left')">
 					<span class="block" style="transform: scale(-1);">&#x279c;</span>
 				</button>
-				<button class="absolute top-0 mt-32 right-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -mr-6 focus:outline-none focus:shadow-outline">
+				<button class="absolute top-0 mt-32 right-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -mr-6 focus:outline-none focus:shadow-outline"
+				@click="()=>change('right')">
 					<span class="block" style="transform: scale(1);">&#x279c;</span>
 				</button>
 			</div>
