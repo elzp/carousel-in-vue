@@ -12,8 +12,20 @@ const app = createApp({
     change(type) {
       switch (type) {
         case 'left':
+          if (this.number == 0) {
+            this.number = 3;
+          } else {
+            this.number -= 1;
+          }
+          console.log(this.number);
           break;
         case 'right':
+          if (this.number == 3) {
+            this.number = 0;
+          } else {
+            this.number += 1;
+          }
+          console.log(this.number);
           break;
         default:
           break;
@@ -27,11 +39,11 @@ const app = createApp({
 			<div class="relative rounded-lg block md:flex items-center bg-gray-100 shadow-xl" style="min-height: 19rem;">
 				<CarouselPart :number="number"/>
 				<button class="absolute top-0 mt-32 left-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -ml-6 focus:outline-none focus:shadow-outline"
-				@click="()=>change('left')">
+				@click="change('left')">
 					<span class="block" style="transform: scale(-1);">&#x279c;</span>
 				</button>
 				<button class="absolute top-0 mt-32 right-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -mr-6 focus:outline-none focus:shadow-outline"
-				@click="()=>change('right')">
+				@click="change('right')">
 					<span class="block" style="transform: scale(1);">&#x279c;</span>
 				</button>
 			</div>
